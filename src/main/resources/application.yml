@@ -1,0 +1,20 @@
+remember:
+  me:
+    token:
+      key: '#$@#$WERWE%#$%#SDT#^$%^'
+      #days
+      expiry: 30
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/todo-management
+    username: postgres
+    password: 123
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+server:
+  port: 8088

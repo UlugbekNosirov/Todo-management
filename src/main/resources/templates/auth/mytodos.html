@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment.html :: header('Admin Panel')"></head>
+<body class="myb">
+<section th:include="fragment.html :: navbar"></section>
+
+
+<div class="container">
+    <div class="row">
+        <p th:align="center" th:size="50px" >Admin Panel. My Todos </p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Condition</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="todo,iter : ${admintodos}">
+                <td th:text="${iter.count}"></td>
+                <td th:utext="${todo.title}"></td>
+                <td th:utext="${todo.description}"></td>
+                <td>
+                    <button class="btn btn-submit">Completed</button>
+                </td>
+                <td>
+                    <a th:href="@{update/{id}/(id=${todo.getId()}) }" class="btn btn-secondary">Update</a>
+                    <a th:href="@{delete/{id}/(id=${todo.getId()}) }" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/todo/create}" class="btn btn-success">➕ Add</a>
+    </div>
+</div>
+
+<section th:include="fragment.html :: js-files"></section>
+</body>
+</html>

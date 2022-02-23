@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment.html :: header('Home Page')">
+    <link rel="stylesheet" th:href="../static/main/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <a th:href="@{/auth/mytodos}" class="btn btn-secondary">
+            <button>My Todos</button>
+        </a>
+        <a th:href="@{/auth/alltodos}" class="btn btn-danger">
+            <button>All Todos</button>
+        </a>
+    </div>
+
+</div>
+</body>
+</html>

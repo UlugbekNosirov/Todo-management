@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment.html :: header('Home Page')"></head>
+<body class="myb">
+<section th:include="fragment.html :: navbar"></section>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <form th:action="@{/todo/update/}" th:method="post" th:object="${update}">
+                <div class="form-group">
+                    <input class="form-control" type="hidden" id="id" name="id"  th:value="${update.get().getId()}" /> <!--th:field="*{title}"-->
+                    <span style="color: red" th:errors="*{id}"></span>
+                </div>
+                <div class="form-group">
+                    <label for="title" class="form-label">Title</label>
+                    <input class="form-control" type="text" id="title" name="title"  th:value="${update.get().getTitle()}" /> <!--th:field="*{title}"-->
+                    <span style="color: red" th:errors="*{title}"></span>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" name="description" th:text="${update.get().getDescription()}" rows="3"></textarea>
+                    <span style="color: red" th:errors="*{description}"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<section th:include="fragment.html :: js-files"></section>
+</body>
+</html>
